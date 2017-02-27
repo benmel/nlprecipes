@@ -33,7 +33,18 @@ preparations = [
   'warm',
   'cook',
   'melt',
-  'to taste'
+  'to taste',
+  'beaten',
+  'seeded',
+  'uncooked',
+  'divided',
+  'thaw',
+  'grate',
+  'juice',
+  'cubed',
+  'quartered',
+  'rinsed',
+  'pitted'
 ]
 
 methods = [
