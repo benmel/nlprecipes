@@ -72,5 +72,27 @@ tools = [
   'whisk',
   'pan',
   'wok',
-  'pot'
+  'pot',
+  'oven'
 ]
+
+time_words = [
+'hours', 
+'minutes',
+'seconds',
+'hour',
+'minute',
+'second']
+
+meat = [
+'beef',
+'pork',
+'chicken']
+
+vege = [
+'tofu']
+
+unhealthy = [
+'butter',
+'sugar',
+'cream']
