@@ -56,7 +56,9 @@ methods = [
   'steam',
   'microwave',
   'roast',
-  'simmer'
+  'simmer',
+  'stir',
+  'poach'
 ]
 
 tools = [
