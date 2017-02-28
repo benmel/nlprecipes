@@ -1,20 +1,20 @@
 import nltk
 from ingredient import Ingredient
 from direction import Direction
-from nltk.corpus import stopwords
 from nltk.util import ngrams
 import re
 import string
 import recipe_lists
-
-stops = set(stopwords.words("english"))
+from fractions import Fraction
 
 def parse_ingredients(ingredientStrings):
-	print "-- parsing ingredients --"
 	list_ingredients = []
 	for ingredientStr in ingredientStrings:
-		utf8 = ingredientStr.encode('utf8').lower().translate(None, string.punctuation)
-		tokens = nltk.word_tokenize(utf8)
+		tokens = nltk.word_tokenize(ingredientStr.encode('utf8'))
+		try:
+			matched_quantity = Fraction(tokens[0])
+		except ValueError:
+			matched_quantity = None
 
 		matched_measurement = None
 		for measurement in recipe_lists.measurements:
@@ -38,11 +38,16 @@ def parse_ingredients(ingredientStrings):
 				matched_preparations.append(matched_trigram)
 		matched_preparation = ', '.join(matched_preparations)
 
-		import pdb;pdb.set_trace()
+		matched_descriptors = []
+		pos_tokens = nltk.pos_tag(tokens)
+		pos_match = ['JJ', 'RB']
+		for pos_token in pos_tokens:
+			if pos_token[1] in pos_match:
+				if pos_token[0] != matched_measurement and pos_token[0] not in matched_preparations and pos_token[0] not in recipe_lists.not_descriptors:
+					matched_descriptors.append(pos_token[0])
+		matched_descriptor = ' '.join(matched_descriptors)
 
-		matched_name = ''
-		matched_quantity = 1
-		matched_descriptor = ''
+		matched_name = None
 
 		new_Ingredient = Ingredient(matched_name, matched_quantity, matched_measurement, matched_descriptor, matched_preparation, ingredientStr)
 		list_ingredients.append(new_Ingredient)
@@ -64,14 +69,3 @@ def match_trigrams(tokens, match_string):
 	trigrams = nltk.ngrams(tokens, 3)
 	if match_tuple in trigrams:
 		return match_string
-
-def parse_directions(directionStrings):
-	print "-- parsing directions --"
-	list_directions = []
-	for directionStr in directionStrings:
-		utf8 = directionStr.encode('utf8').lower().translate(None, string.punctuation)
-		tokenized = nltk.word_tokenize(utf8)
-		tagged = nltk.pos_tag(tokenized)
-		#new_Direction = Direction(name, quantity, measurement, descriptor, preparation, unparsed)
-		#list_directions.append(new_Direction)
-	return list_directions

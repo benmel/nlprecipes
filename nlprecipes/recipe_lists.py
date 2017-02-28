@@ -47,6 +47,11 @@ preparations = [
   'pitted'
 ]
 
+not_descriptors = [
+  'garlic',
+  'partially'
+]
+
 methods = [
   'fry',
   'boil',
