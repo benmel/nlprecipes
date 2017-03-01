@@ -92,6 +92,30 @@ meat = [
 vege = [
 'tofu']
 
+Indian = {
+'beef':'chicken',
+ 'pork':'lamb',
+ 'bread':'naan',
+ 'sandwich':'flatbread',
+ 'noodles':'rice',
+ 'pasta':'rice'
+}
+
+Korean = [
+'lettuce':'kimchee',
+'beef':'bulgogi',
+'pasta': 'japchae',
+'bread':'rice',
+]
+Chinese = [
+'bread':'rice',
+'rolls':'buns',
+'roll':'bun',
+'pasta':'noodes'
+]
+Italian = []
+Mexican = []
+
 unhealthy = [
 'butter',
 'sugar',
