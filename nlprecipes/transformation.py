@@ -58,7 +58,3 @@ def unhealth_to_health(Recipe):
 	return Recipe
 
 
-
-
-
-
