@@ -101,18 +101,18 @@ Indian = {
  'pasta':'rice'
 }
 
-Korean = [
+Korean = {
 'lettuce':'kimchee',
 'beef':'bulgogi',
 'pasta': 'japchae',
 'bread':'rice',
-]
-Chinese = [
+}
+Chinese = {
 'bread':'rice',
 'rolls':'buns',
 'roll':'bun',
 'pasta':'noodes'
-]
+}
 Italian = []
 Mexican = []
 

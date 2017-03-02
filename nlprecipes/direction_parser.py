@@ -43,7 +43,7 @@ def parse_directions(directionStrings, ingredients):
 			match_timed = match_time(tokens, word)
 			if match_timed:
 				times = times + (match_timed)
-		new_direction = Direction(ingredients, tools, methods,preparations,times, directionStr)
+		new_direction = Direction(tools, methods,preparations,times, directionStr)
 		list_directions.append(new_direction)
 	return list_directions
 

@@ -13,8 +13,5 @@ def run(url):
   directions = direction_parser.parse_directions(directions,ingredients)
   recipes = recipe.Recipe(recipe_name, ingredients, directions)  
   transformation.transform(recipes, 'vegetarian_to_meat')
-  print len(recipes.ingredients)
-  for i in recipes.ingredients:
-  	print i.name
-  #import pdb; pdb.set_trace()
+  import pdb; pdb.set_trace()
 

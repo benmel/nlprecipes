@@ -1,6 +1,5 @@
 class Direction:
-  def __init__(self, ingredients, tools, methods, preparations, times, unparsed):
-    self.ingredients = ingredients
+  def __init__(self, tools, methods, preparations, times, unparsed):
     self.tools = tools
     #below are the primary cooking methods
     self.methods = methods
