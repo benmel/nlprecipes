@@ -16,7 +16,8 @@ measurements = [
   'clove',
   'can',
   'jar',
-  'package'
+  'package',
+  'container'
 ]
 
 preparations = [
@@ -44,7 +45,10 @@ preparations = [
   'cubed',
   'quartered',
   'rinsed',
-  'pitted'
+  'pitted',
+  'softened',
+  'flaked',
+  'as needed'
 ]
 
 not_descriptors = [
