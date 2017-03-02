@@ -1,4 +1,3 @@
-
 import parser
 import scraper
 import direction_parser
@@ -13,5 +12,4 @@ def run(url):
   directions = direction_parser.parse_directions(directions,ingredients)
   recipes = recipe.Recipe(recipe_name, ingredients, directions)  
   transformation.transform(recipes, 'vegetarian_to_meat')
-  import pdb; pdb.set_trace()
-
+ 
