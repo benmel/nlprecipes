@@ -16,7 +16,8 @@ measurements = [
   'clove',
   'can',
   'jar',
-  'package'
+  'package',
+  'container'
 ]
 
 preparations = [
@@ -33,7 +34,26 @@ preparations = [
   'warm',
   'cook',
   'melt',
-  'to taste'
+  'to taste',
+  'beaten',
+  'seeded',
+  'uncooked',
+  'divided',
+  'thaw',
+  'grate',
+  'juice',
+  'cubed',
+  'quartered',
+  'rinsed',
+  'pitted',
+  'softened',
+  'flaked',
+  'as needed'
+]
+
+not_descriptors = [
+  'garlic',
+  'partially'
 ]
 
 methods = [
@@ -45,7 +65,9 @@ methods = [
   'steam',
   'microwave',
   'roast',
-  'simmer'
+  'simmer',
+  'stir',
+  'poach'
 ]
 
 tools = [
