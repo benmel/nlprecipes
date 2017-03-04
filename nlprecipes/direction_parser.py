@@ -7,7 +7,7 @@ import string
 import recipe_lists
 import parser
 
-def parse_directions(directionStrings, ingredients):
+def parse_directions(directionStrings):
 	print "-- parsing directions --"
 	list_directions = []
 	for directionStr in directionStrings:
@@ -20,25 +20,26 @@ def parse_directions(directionStrings, ingredients):
 		for word in recipe_lists.preparations:
 			preparation_pattern = r'(?i)\b' + re.escape(word)
 			matched_unigram = parser.match_unigrams(tokens, preparation_pattern)
-			if matched_unigram:
-					preparations.append(matched_unigram)
+			if matched_unigram[0]:
+					preparations.append(matched_unigram[0])
 			matched_bigram = parser.match_bigrams(tokens, word)
-			if matched_bigram:
-				preparations.append(matched_bigram)
+			if matched_bigram[0]:
+				preparations.append(matched_bigram[0])
 		for word in recipe_lists.tools:
 
 			tools_pattern = r'(?i)\b' + re.escape(word)
 			matched_unigram = parser.match_unigrams(tokens, tools_pattern)
-			if matched_unigram:
-					tools.append(matched_unigram)
+			if matched_unigram[0]:
+				tools.append(matched_unigram[0])
 			matched_bigram = parser.match_bigrams(tokens, word)
-			if matched_bigram:
-				tools.append(matched_bigram)
+			if matched_bigram[0]:
+				
+				tools.append(matched_bigram[0])
 		for word in recipe_lists.methods:
 			methods_pattern = r'(?i)\b' + re.escape(word)
 			matched_unigram = parser.match_unigrams(tokens, methods_pattern)
-			if matched_unigram:
-					methods.append(matched_unigram)
+			if matched_unigram[0]:
+					methods.append(matched_unigram[0])
 		for word in recipe_lists.time_words:	
 			match_timed = match_time(tokens, word)
 			if match_timed:
