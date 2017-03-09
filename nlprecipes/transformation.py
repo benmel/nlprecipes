@@ -76,6 +76,7 @@ def cuisine_change(coming_from, going_to, Recipe):
 		l = recipe_lists.Mexican
 	for indt in ingredients:
 		if indt.name in l:
+			replace_in_directions(direction, indt.name, l[indt.name])
 			indt.name = l[indt.name]
 	return Recipe
 

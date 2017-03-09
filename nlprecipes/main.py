@@ -9,7 +9,11 @@ def run(url):
   print "parsing HTML"
   ingredients, directions, recipe_name = scraper.parse_html(raw_html)
   ingredients = parser.parse_ingredients(ingredients)
-  directions = direction_parser.parse_directions(directions,ingredients)
+  directions = direction_parser.parse_directions(directions)
   recipes = recipe.Recipe(recipe_name, ingredients, directions)  
   transformation.transform(recipes, 'vegetarian_to_meat')
+  for d in ingredients:
+  	print d.__dict__
+  for d in directions:
+  	print d.__dict__
  
