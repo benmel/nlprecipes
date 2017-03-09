@@ -24,9 +24,14 @@ def transform(Recipe, change):
 # assuming these are pass by reference
 
 def replace_in_directions(directions, string, repl):
+	#import pdb; pdb.set_trace()
 	for dire in directions:
 		name_pattern = r'(?i)\b' + re.escape(string)
-		dire.unparsed = re.sub(name_pattern, dire.unparsed, repl)
+		#dire.unparsed = dire.unparsed.split()
+		#import pdb; pdb.set_trace()
+		dire.unparsed = re.sub(name_pattern, repl, dire.unparsed)
+
+		#dire.unparsed = " ".join(dire.unparsed)
 
 
 def general_ve_me(Recipe, from_list, to_list):
@@ -35,10 +40,10 @@ def general_ve_me(Recipe, from_list, to_list):
 	for i in range(0, len(ingredient)):
 		for word in from_list:
 			name_pattern = r'(?i)\b' + re.escape(word)
-			
 			if re.search(name_pattern, ingredient[i].name):
-				replace_in_directions(directions, ingredient[i].name, to_list[0])
+				replace_in_directions(directions, word, to_list[0])
 				ingredient[i].name = to_list[0]
+				ingredient[i].changed = True
 
 def general_health(Recipe, destination):
 	direction = Recipe.directions
@@ -47,22 +52,23 @@ def general_health(Recipe, destination):
 		for word in recipe_lists.unhealthy:		
 			name_pattern = r'(?i)\b' + re.escape(word)
 			if item.quantity!=None:
-				if re.search(name_pattern, item.name):
+				if re.search(name_pattern, item.name) and destination=='unhealthy':
 					item.quantity = item.quantity * Fraction(2,1)
 					match_amount(direction, name_pattern, item.quantity)
-				else:
+					item.changed = True
+				elif re.search(name_pattern, item.name) and destination=='healthy':
 					item.quantity = item.quantity * Fraction(1,2)
 					match_amount(direction, name_pattern, item.quantity)
+					item.changed = True
 
 
-def match_amount(direction, match_string, Fraction):	
+def match_amount(direction, match_string, fraction):	
 	for dirc in direction:
 		tokens = dirc.unparsed.split()
-		times = []
 		previous = tokens[0]
 		for t in range(len(tokens)):
-			if tokens[t]==match_string:
-				tokens[t-1] = str(Fraction)
+			if re.search(match_string, tokens[t]):
+				tokens[t-1] = str(fraction)
 				tokens = " ".join(tokens)
 				break
 
@@ -96,8 +102,9 @@ def cuisine_change(going_to, Recipe):
 		for key in l:
 			name_pattern = r'(?i)\b' + re.escape(key)
 			if re.search(name_pattern, indt.name):
-				replace_in_directions(direction, indt.name, l[key])
+				replace_in_directions(direction, key, l[key])
 				indt.name = l[key]
+				indt.changed = True
 	return Recipe
 
 
