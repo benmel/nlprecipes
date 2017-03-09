@@ -109,7 +109,8 @@ time_words = [
 meat = [
 'beef',
 'pork',
-'chicken']
+'chicken',
+'steak']
 
 vege = [
 'tofu']
@@ -196,4 +197,6 @@ Mexican = {
 unhealthy = [
 'butter',
 'sugar',
-'cream']
+'cream',
+'oil',
+'cheese']

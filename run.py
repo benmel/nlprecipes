@@ -38,7 +38,7 @@ def run():
       initialPrintOption = "Both"
       valid_transformation = True
     else:
-      print "Invalid option, please enter a number from 1 to 3 \n"
+      print "Invalid option, please enter a number from 1 to 4 \n"
 
   print '\n'
   recipe = main.parse(recipeURL)
@@ -86,11 +86,11 @@ def run():
     elif (finalPrintOption == '3'):
       finalPrintOption = "Human"
       valid_transformation = True
-    elif (initialPrintOption == '4'):
-      initialPrintOption = "Both"
+    elif (finalPrintOption == '4'):
+      finalPrintOption = "Both"
       valid_transformation = True
     else:
-      print "Invalid option, please enter a number from 1 to 3 \n"
+      print "Invalid option, please enter a number from 1 to 4 \n"
 
   print '\n'
   main.transform(recipe, transformation)
