@@ -94,5 +94,53 @@ tools = [
   'whisk',
   'pan',
   'wok',
-  'pot'
+  'pot',
+  'oven'
 ]
+
+time_words = [
+'hours', 
+'minutes',
+'seconds',
+'hour',
+'minute',
+'second']
+
+meat = [
+'beef',
+'pork',
+'chicken']
+
+vege = [
+'tofu']
+
+Indian = {
+'beef':'chicken',
+ 'pork':'lamb',
+ 'bread':'naan',
+ 'sandwich':'flatbread',
+ 'noodles':'rice',
+ 'pasta':'rice'
+}
+
+Korean = {
+'lettuce':'kimchee',
+'beef':'bulgogi',
+'pasta': 'japchae',
+'bread':'rice',
+}
+Chinese = {
+'bread':'rice',
+'rolls':'buns',
+'roll':'bun',
+'pasta':'noodes'
+}
+Italian = []
+Mexican = []
+
+unhealthy = [
+'butter',
+'sugar',
+'cream']
+
+
