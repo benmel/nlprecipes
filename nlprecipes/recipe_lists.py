@@ -109,7 +109,8 @@ time_words = [
 meat = [
 'beef',
 'pork',
-'chicken']
+'chicken',
+'steak']
 
 vege = [
 'tofu']

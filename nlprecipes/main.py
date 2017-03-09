@@ -11,9 +11,10 @@ def run(url):
   ingredients = parser.parse_ingredients(ingredients)
   directions = direction_parser.parse_directions(directions)
   recipes = recipe.Recipe(recipe_name, ingredients, directions)  
-  transformation.transform(recipes, 'vegetarian_to_meat')
+  #transformation.transform(recipes, 'healthy_to_unhealthy')
   for d in ingredients:
   	print d.__dict__
+  print "parsing direction"
   for d in directions:
   	print d.__dict__
  
