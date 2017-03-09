@@ -8,7 +8,6 @@ import recipe_lists
 import parser
 
 def parse_directions(directionStrings):
-	print "-- parsing directions --"
 	list_directions = []
 	for directionStr in directionStrings:
 		utf8 = directionStr.encode('utf8').lower().translate(None, string.punctuation)
@@ -48,7 +47,6 @@ def parse_directions(directionStrings):
 		list_directions.append(new_direction)
 	return list_directions
 
-
 #this function pulls out the time unit and preceding number
 def match_time(tokens, match_string):	
 	times = []
@@ -56,9 +54,5 @@ def match_time(tokens, match_string):
 	for t in tokens:
 		if t==match_string:
 			times.append([previous,t])
-			#import pdb; pdb.set_trace()
 		previous= t
 	return times
-
-
-
