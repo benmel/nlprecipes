@@ -10,22 +10,21 @@ Options = [["vegetarian to meat","vegetarian_to_meat"],
             ["to Indian", "Indian"],
             ["to Mexican", "Mexican"],]
 def run():
-   print "Starting run function"
    recipeURL = raw_input(" '1':southwest chicken casserole\n '2':filet mignon with balsamic glaze\n '3':artichoke spinach dip\n '4':quick and easy jambalaya\n Please enter a URL to a recipe or select an option from the list above: ")
    if (recipeURL == '1'):
-      recipeURL = "http://allrecipes.com/recipe/231173/spicy-southwest-chicken-casserole/?internalSource=rotd&referringContentType=home%20page&clickId=cardslot%201"
+      recipeURL = "http://allrecipes.com/recipe/231173/spicy-southwest-chicken-casserole"
    elif (recipeURL == '2'):
-      recipeURL = "http://allrecipes.com/recipe/30578/filet-mignon-with-rich-balsamic-glaze/?clickId=right%20rail%203&internalSource=rr_feed_recipe&referringId=30578&referringContentType=recipe"
+      recipeURL = "http://allrecipes.com/recipe/30578/filet-mignon-with-rich-balsamic-glaze"
    elif (recipeURL == '3'):
-      recipeURL = "http://allrecipes.com/recipe/33474/artichoke-spinach-dip-restaurant-style/?internalSource=previously%20viewed&referringContentType=home%20page&clickId=cardslot%2018"
+      recipeURL = "http://allrecipes.com/recipe/33474/artichoke-spinach-dip-restaurant-style"
    elif (recipeURL == '4'):
-      recipeURL = "http://allrecipes.com/recipe/236995/quick-and-easy-jambalaya/?internalSource=hp_carousel%2001_Quick%20and%20Easy%20Jambalaya&referringContentType=home%20page&referringPosition=carousel%2001"
+      recipeURL = "http://allrecipes.com/recipe/236995/quick-and-easy-jambalaya"
    print "\n using URL:\n [", recipeURL,"]\n"
    valid_transformation = False 
    initialPrintOption = ""
 
    while (not valid_transformation):
-      initialPrintOption = raw_input(" '1':No\n '2':Print with Object Notation\n '3':Print Human Readable Notation\n '4':Both \n Do you want to print the initial Recipe?: ")
+      initialPrintOption = raw_input(" '1':No\n '2':Print with Object Notation\n '3':Print Human Readable Notation\n '4':Both \n Do you want to print the initial recipe?: ")
       if (initialPrintOption == '1'):
          initialPrintOption = "No"
          valid_transformation = True
@@ -42,7 +41,13 @@ def run():
          print "Invalid option, please enter a number from 1 to 3 \n"
 
    print '\n'
-   recipes = main.parse(recipeURL,initialPrintOption)
+   recipe = main.parse(recipeURL)
+
+   if initialPrintOption == 'Object' or initialPrintOption == 'Both':
+     print recipe.object_notation()
+   if initialPrintOption == 'Human' or initialPrintOption == 'Both':
+     print '\n'
+     print recipe.human_readable()
 
    print '\n'
    valid_transformation = False 
@@ -58,8 +63,6 @@ def run():
 
       if transformation.isdigit():
          index = int(transformation) - 1
-         print index
-         print len(Options)
          if index >= 0 and index < len(Options):
             valid_transformation = True
             transformation = Options[index][1]
@@ -73,7 +76,7 @@ def run():
    print '\n'
    
    while (not valid_transformation):
-      finalPrintOption = raw_input(" '1':No\n '2':Print with Object Notation\n '3':Print Human Readable Notation\n '4':Both\n Do you want to print the transformed Recipe?: ")
+      finalPrintOption = raw_input(" '1':No\n '2':Print with Object Notation\n '3':Print Human Readable Notation\n '4':Both\n Do you want to print the transformed recipe?: ")
       if (finalPrintOption == '1'):
          finalPrintOption = "No"
          valid_transformation = True
@@ -90,14 +93,13 @@ def run():
          print "Invalid option, please enter a number from 1 to 3 \n"
 
    print '\n'
-   main.transform(recipes,transformation,finalPrintOption)
+   main.transform(recipe, transformation)
 
-   #main.run('http://allrecipes.com/recipe/231173/spicy-southwest-chicken-casserole/?internalSource=rotd&referringContentType=home%20page&clickId=cardslot%201')
-   #main.run('http://allrecipes.com/recipe/30578/filet-mignon-with-rich-balsamic-glaze/?clickId=right%20rail%203&internalSource=rr_feed_recipe&referringId=30578&referringContentType=recipe')
-   #main.run('http://allrecipes.com/recipe/33474/artichoke-spinach-dip-restaurant-style/?internalSource=previously%20viewed&referringContentType=home%20page&clickId=cardslot%2018')
-   #main.run('http://allrecipes.com/recipe/236995/quick-and-easy-jambalaya/?internalSource=hp_carousel%2001_Quick%20and%20Easy%20Jambalaya&referringContentType=home%20page&referringPosition=carousel%2001')
-   #main.run('http://allrecipes.com/recipe/237677/tater-tots-casserole/?internalSource=previously%20viewed&referringContentType=home%20page&clickId=cardslot%209')
-   #main.run('http://allrecipes.com/recipe/219164/the-best-parmesan-chicken-bake/?clickId=right%20rail%202&internalSource=rr_feed_recipe&referringId=219164&referringContentType=recipe')
+   if finalPrintOption == 'Object' or finalPrintOption == 'Both':
+     print recipe.object_notation()
+   if finalPrintOption == 'Human' or finalPrintOption == 'Both':
+     print '\n'
+     print recipe.human_readable()
 
 if __name__ == '__main__':
   run()
