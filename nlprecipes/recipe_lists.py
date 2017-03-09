@@ -115,32 +115,85 @@ vege = [
 'tofu']
 
 Indian = {
-'beef':'chicken',
- 'pork':'lamb',
- 'bread':'naan',
- 'sandwich':'flatbread',
- 'noodles':'rice',
- 'pasta':'rice'
+  'beef':'chicken',
+  'steak':'chicken',
+  'pork':'lamb',
+  'bread':'naan',
+  'sandwich':'flatbread',
+  'noodles':'rice',
+  'pasta':'rice'
 }
 
 Korean = {
-'lettuce':'kimchee',
-'beef':'bulgogi',
-'pasta': 'japchae',
-'bread':'rice',
+  'lettuce':'kimchee',
+  'beef':'bulgogi',
+  'steak':'bulgogi',
+  'pasta': 'japchae',
+  'bread':'rice',
+  'cheese':''
 }
-Chinese = {
-'bread':'rice',
-'rolls':'buns',
-'roll':'bun',
-'pasta':'noodes'
+
+Chinese ={
+  'bread':'rice',
+  'rolls':'buns',
+  'roll':'bun',
+  'pasta':'noodles',
+  'lettuce':'bok choy',
+  'cabbage':'bok choy',
+  'vinegar':'rice vinegar',
+  'salt':'soy sauce',
+  'worcestershire sauce':'hoisin sauce',
+  'barbecue sauce':'douchi',
+  'olive oil':'sesame oil',
+  'extra virgin olive oil':'sesame oil',
+  'canola oil':'sesame oil',
+  'vegetable oil':'sesame oil',
+  'string beans':'snow peas',
+  'green beans':'snow peas',
+  'cheese':'',
+  'garlic':'ginger',
+  'beef':'pork',
+  'steak':'pork',
+  'chicken':'duck',
+  'onion':'leek'
 }
-Italian = []
-Mexican = []
+
+Italian = {
+  'rice':'pasta',
+  'noodles':'pasta',
+  'potatoes':'noodles',
+  'potato':'noodles',
+  'corn':'bell pepper',
+  'turnip':'onion',
+  'carrot':'onion',
+  'bok choy':'lettuce',
+  'cilantro':'basil',
+  'chives':'parsley',
+  'jalapeno':'bell pepper',
+  'cayenne':'bell pepper',
+  'ginger':'garlic'
+}
+
+Mexican = {
+  'beef':'carnitas',
+  'steak':'carnitas',
+  'fish':'chicken',
+  'bread':'tortilla',
+  'potatoes':'refried beans',
+  'basil':'cilantro',
+  'parsley':'cilantro',
+  'bell pepper':'chili pepper',
+  'string bean':'kidney bean',
+  'peas':'black beans',
+  'rice':'quinoa',
+  'turnip':'corn',
+  'carrot':'corn',
+  'eggplant':'tomato',
+  'leek':'onion',
+  'garlic':'onion'
+}
 
 unhealthy = [
 'butter',
 'sugar',
 'cream']
-
-
